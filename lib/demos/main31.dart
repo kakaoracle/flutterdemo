@@ -5,7 +5,9 @@ import 'package:kaka/routes/Routes.dart';
 
 /*
 * 常用表单控件,
-*
+* 单行广西框,TextField多行文本框,CheckBox,CheckboxListTile
+* 首页跳转到textfield页面
+* 首页跳转到checkbox页面
 *
 * */
 
