@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kaka/pages/CheckBox.dart';
 import 'package:kaka/pages/ProductPage.dart';
 import 'package:kaka/pages/ProductPage1.dart';
+import 'package:kaka/pages/Radio.dart';
 import 'package:kaka/pages/Tabs1.dart';
 import 'package:kaka/pages/Tabs2.dart';
 import 'package:kaka/pages/TextField.dart';
@@ -17,6 +18,7 @@ final routes = {
   '/tabs2':(context) => Tabs2(),
   '/textfield':(context) => TextFieldDemoPage(),
   '/checkbox':(context) => CheckBoxPage(),
+  '/radio' :(context) => RadioPage(),
 
   // 命名路由,不传值
   '/product':(context)=>ProductPage(),
