@@ -10,6 +10,7 @@ class RadioPage extends StatefulWidget{
 
 class RadioPageState extends State<RadioPage> {
   int sex = 1;
+  bool flag = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +62,9 @@ class RadioPageState extends State<RadioPage> {
                 },
                 groupValue: this.sex,
                 title: Text("标题"),
+              subtitle: Text("二级标题"),
+              secondary: Image.network("https://i.loli.net/2020/11/23/BKtdji9PbISoOey.jpg"),
+              selected: this.sex==2,
               ),
             RadioListTile(
                 value: 2,
@@ -71,6 +75,18 @@ class RadioPageState extends State<RadioPage> {
                 },
                 groupValue: this.sex,
                 title: Text("标题"),
+              subtitle: Text("二级标题"),
+              secondary: Image.network("https://i.loli.net/2020/11/23/BKtdji9PbISoOey.jpg"),
+              selected: this.sex==2,
+            ),
+            SizedBox(height: 40,),
+            Switch(
+              value: this.flag,
+              onChanged: (v){
+                setState(() {
+                  this.flag = v;
+                });
+              },
             ),
           ],
         ),

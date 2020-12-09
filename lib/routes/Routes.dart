@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaka/pages/CheckBox.dart';
+import 'package:kaka/pages/Dialog.dart';
+import 'package:kaka/pages/PickerDate.dart';
 import 'package:kaka/pages/ProductPage.dart';
 import 'package:kaka/pages/ProductPage1.dart';
 import 'package:kaka/pages/Radio.dart';
+import 'package:kaka/pages/Swiper.dart';
 import 'package:kaka/pages/Tabs1.dart';
 import 'package:kaka/pages/Tabs2.dart';
 import 'package:kaka/pages/TextField.dart';
@@ -19,6 +22,9 @@ final routes = {
   '/textfield':(context) => TextFieldDemoPage(),
   '/checkbox':(context) => CheckBoxPage(),
   '/radio' :(context) => RadioPage(),
+  '/picker' :(context) => PickDatePage(),
+  '/swiper' :(context) => SwiperPage(),
+  '/dialog' :(context) => DialogPage(),
 
   // 命名路由,不传值
   '/product':(context)=>ProductPage(),
