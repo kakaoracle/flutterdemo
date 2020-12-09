@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:kaka/components/SelfDialog.dart';
 
 class DialogPage extends StatefulWidget{
   @override
@@ -96,6 +97,7 @@ _toast() {
 
 
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,6 +126,18 @@ _toast() {
             RaisedButton(
               child: Text("toast第三方 弹出窗"),
               onPressed: _toast,
+            ),
+            SizedBox(height: 20,),
+            RaisedButton(
+              child: Text("自定义dialog"),
+              onPressed: (){
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return SelfDialog();
+                  }
+                );
+              },
             ),
           ],
         ),

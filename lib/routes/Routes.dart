@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kaka/pages/CheckBox.dart';
 import 'package:kaka/pages/Dialog.dart';
+import 'package:kaka/pages/DioDemo.dart';
 import 'package:kaka/pages/PickerDate.dart';
 import 'package:kaka/pages/ProductPage.dart';
 import 'package:kaka/pages/ProductPage1.dart';
@@ -25,6 +26,8 @@ final routes = {
   '/picker' :(context) => PickDatePage(),
   '/swiper' :(context) => SwiperPage(),
   '/dialog' :(context) => DialogPage(),
+  '/diodemo' :(context) => DioDemoPage(),
+
 
   // 命名路由,不传值
   '/product':(context)=>ProductPage(),

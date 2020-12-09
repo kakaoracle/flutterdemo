@@ -20,6 +20,8 @@ dependencies:
   cupertino_icons: ^1.0.0
   flutter_swiper: ^1.1.6
   fluttertoast: ^7.1.5
+  http: ^0.12.2
+  dio: ^3.0.10
 
 
 dev_dependencies:

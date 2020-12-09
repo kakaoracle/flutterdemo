@@ -4,7 +4,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:kaka/pages/Search.dart';
 import 'package:kaka/routes/Routes.dart';
 
-/* 入门教程已完结
+/* 网络请求,原生,dio,nodejs提供本地接口
+* 首页使用dio路由
 * */
 
 void main(){
