@@ -2,97 +2,81 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../LoginBloc.dart';
-import '../LoginEvent.dart';
-import '../LoginState.dart';
+import 'LoginBloc.dart';
+import 'LoginEvent.dart';
+import 'LoginState.dart';
 import 'HomePage.dart';
 
 class LoginPage extends StatefulWidget {
+  LoginPage({Key key}) : super(key: key);
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final nameCtr = new TextEditingController();
-  final pwdCtr = new TextEditingController();
+  int _numer = 0;
+  LoginBloc loginBloc;
+  final nameController = new TextEditingController();
+  final pwdController = new TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    nameCtr.addListener(() {
-      print('name输入框的实时变化::::${nameCtr.text}');
-    });
-    pwdCtr.addListener(() {
-      print('pwd输入框的实时变化::::${pwdCtr.text}');
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    nameCtr?.removeListener(() {});
-    nameCtr?.dispose();
-    pwdCtr?.removeListener(() {});
-    pwdCtr?.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('登录'),
-        centerTitle: true,
-      ),
-      body: BlocBuilder<LoginBloc, LoginState>(
-        builder: (context, state) {
-          if (state is LoginInitialState) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                nameTF(),
-                pwdTF(),
-                loginBtn(context, () {
-                  BlocProvider.of<LoginBloc>(context).add(
-                      LoginPressEvent(nameCtr.text.trim(), pwdCtr.text.trim()));
-                }),
-              ],
-            );
-          }
-
-          if (state is LoginInProgressState) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-
-          if (state is LoginSuccessState) {
-            return SuccessDialog();
-          }
-
-          if (state is LoginFailureState) {
-            final currentState = state;
-            return Center(
-              child: Text(
-                currentState.errMsg,
-                style: TextStyle(fontSize: 18, color: Colors.black),
-              ),
-            );
-          }
-
-          return Container();
-        },
-      ),
+      appBar: AppBar(title: Text("title")),
+      body: BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
+        // 初始状态
+        if (state is LoginInitialState) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              nameTf(),
+              pwdTF(),
+              loginBtn(context, () {
+                BlocProvider.of<LoginBloc>(context).add(
+                    LoginPressEvent(nameController.text, pwdController.text));
+              }),
+            ],
+          );
+        }
+        // 登录中状态
+        if (state is LoginInProgressState) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        // 登录成功状态
+        if (state is LoginSuccessState) {
+          return SuccessDialog();
+        }
+        // 登录失败
+        if (state is LoginFailState) {
+          final currentState = state;
+          return Center(
+            child: Text(
+              currentState.errMsg,
+              style: TextStyle(fontSize: 18, color: Colors.black),
+            ),
+          );
+        }
+      }),
     );
   }
 
-  Widget nameTF() {
+  //---------  Widget ----------------------/
+  Widget nameTf() {
     return Container(
       height: 60,
       margin: EdgeInsets.symmetric(horizontal: 50),
       width: double.infinity,
       child: TextField(
-        controller: nameCtr,
+        controller: nameController,
         decoration: InputDecoration(
             fillColor: Color(0x30cccccc),
             filled: true,
@@ -100,9 +84,10 @@ class _LoginPageState extends State<LoginPage> {
                 borderSide: BorderSide(color: Color(0x00FF0000)),
                 borderRadius: BorderRadius.circular(100)),
             focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0x00FF0000)),
-                borderRadius: BorderRadius.circular(100)),
-            hintText: '请输入用户名'),
+              borderSide: BorderSide(color: Color(0x00FF0000)),
+              borderRadius: BorderRadius.circular(100),
+            ),
+            hintText: "请输入用户名"),
       ),
     );
   }
@@ -113,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
       margin: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
       width: double.infinity,
       child: TextField(
-        controller: pwdCtr,
+        controller: pwdController,
         decoration: InputDecoration(
           fillColor: Color(0x30cccccc),
           filled: true,
@@ -152,7 +137,9 @@ class _LoginPageState extends State<LoginPage> {
 
 class SuccessDialog extends StatefulWidget {
   @override
-  _SuccessDialogState createState() => _SuccessDialogState();
+  State<StatefulWidget> createState() {
+    return _SuccessDialogState();
+  }
 }
 
 class _SuccessDialogState extends State<SuccessDialog> {
@@ -160,12 +147,6 @@ class _SuccessDialogState extends State<SuccessDialog> {
     await Future.delayed(Duration(milliseconds: 500));
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => HomePage()));
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    waitFuture();
   }
 
   @override

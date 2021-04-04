@@ -1,4 +1,4 @@
-import 'package:kaka/bloc/page/UserModel.dart';
+import 'package:kaka/bloc/UserModel.dart';
 
 class LoginRepository {
   static Future login(String name, String pwd) async {

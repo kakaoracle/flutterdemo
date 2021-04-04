@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../LoginBloc.dart';
-import '../LoginState.dart';
+import 'LoginBloc.dart';
+import 'LoginState.dart';
 
+/**
+ * 登录成功后的主页面
+ * 
+ */
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();

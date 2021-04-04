@@ -1,8 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:kaka/bloc/page/UserModel.dart';
+import 'package:kaka/bloc/UserModel.dart';
 
-abstract class LoginState extends Equatable {
-  const LoginState();
+class LoginState extends Equatable {
   @override
   List<Object> get props => [];
 }
@@ -18,11 +17,9 @@ class LoginSuccessState extends LoginState {
   List<Object> get props => [model];
 }
 
-class LoginFailureState extends LoginState {
+class LoginFailState extends LoginState {
   final String errMsg;
-
-  LoginFailureState(this.errMsg);
-
+  LoginFailState(this.errMsg);
   @override
   List<Object> get props => [errMsg];
 }
