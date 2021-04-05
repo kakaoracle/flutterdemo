@@ -1,8 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:kaka/pages/Search.dart';
-import 'package:kaka/routes/Routes.dart';
-
+import 'package:kaka/routes/OnGenerateRoute.dart';
 /*
 * 标题栏图标,颜色以及tabbar切换,settings,写在设置按钮页面
 * 用tabcontroller来控制,更精细,比如可以监听
