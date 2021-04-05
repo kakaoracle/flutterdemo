@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 
 class ButtonPage extends StatelessWidget {
@@ -21,12 +18,12 @@ class ButtonPage extends StatelessWidget {
                 color: Colors.blueGrey,
                 textColor: Colors.white,
                 elevation: 20, // 阴影
-                onPressed: (){
+                onPressed: () {
                   print("custom");
                 },
               ),
               RaisedButton.icon(
-                icon:Icon(Icons.home),
+                icon: Icon(Icons.home),
                 label: Text("图标按钮"),
                 onPressed: null,
               ),
@@ -44,12 +41,11 @@ class ButtonPage extends StatelessWidget {
                   color: Colors.blueGrey,
                   textColor: Colors.white,
                   elevation: 20, // 阴影
-                  onPressed: (){
+                  onPressed: () {
                     print("custom");
                   },
                 ),
               ),
-
             ],
           ),
           Row(
@@ -61,7 +57,7 @@ class ButtonPage extends StatelessWidget {
                   color: Colors.blueGrey,
                   textColor: Colors.white,
                   elevation: 20, // 阴影
-                  onPressed: (){
+                  onPressed: () {
                     print("custom");
                   },
                 ),
@@ -70,78 +66,68 @@ class ButtonPage extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-
-            ],
+            children: [],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              RaisedButton(
-                child: Text("圆角按钮"),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            RaisedButton(
+              child: Text("圆角按钮"),
+              color: Colors.blueGrey,
+              textColor: Colors.white,
+              elevation: 20, // 阴影
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              onPressed: () {
+                print("custom");
+              },
+            ),
+            Container(
+              height: 80,
+              child: RaisedButton(
+                child: Text("圆形按钮"),
                 color: Colors.blueGrey,
                 textColor: Colors.white,
                 elevation: 20, // 阴影
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)
-                ),
-                onPressed: (){
+                splashColor: Colors.grey, // 长按的水波纹
+                shape: CircleBorder(side: BorderSide(color: Colors.white)),
+                onPressed: () {
                   print("custom");
                 },
               ),
-              Container(
-                height: 80,
-                child:RaisedButton(
-                  child: Text("圆形按钮"),
-                  color: Colors.blueGrey,
-                  textColor: Colors.white,
-                  elevation: 20, // 阴影
-                  splashColor: Colors.grey, // 长按的水波纹
-                  shape: CircleBorder(
-                      side: BorderSide(
-                          color: Colors.white
-                      )
-                  ),
-                  onPressed: (){
-                    print("custom");
-                  },
-                ),
-              ),
-              FlatButton(
-                child: Text("扁平式按钮"),
-                color: Colors.blue,
-                textColor: Colors.yellowAccent,
-                onPressed: (){
-                  print("");
-                },
-              ),
-              OutlineButton(
-                child: Text("outline btn"),
-                color: Colors.amber,
-                textColor: Colors.amber,
-                onPressed: (){
-                  print("");
-                },
-              ),
-            ]
-          ),
+            ),
+            FlatButton(
+              child: Text("扁平式按钮"),
+              color: Colors.blue,
+              textColor: Colors.yellowAccent,
+              onPressed: () {
+                print("");
+              },
+            ),
+            OutlineButton(
+              child: Text("outline btn"),
+              color: Colors.amber,
+              textColor: Colors.amber,
+              onPressed: () {
+                print("");
+              },
+            ),
+          ]),
           // buttonbar主要用来统一管理同一组图标样式而已
           Row(
-          children: <Widget>[
-            ButtonBar(
-              children: [
-                RaisedButton(
+            children: <Widget>[
+              ButtonBar(
+                children: [
+                  RaisedButton(
                     child: Text("普通按钮1"),
                     color: Colors.amber,
-                ),
-                RaisedButton(
-                  child: Text("普通按钮2"),
-                  color: Colors.amber,
-                )
-              ],
-            ),
-          ],
-        ),
+                  ),
+                  RaisedButton(
+                    child: Text("普通按钮2"),
+                    color: Colors.amber,
+                  )
+                ],
+              ),
+            ],
+          ),
           // 自定义按钮
           Row(
             children: <Widget>[
@@ -151,31 +137,28 @@ class ButtonPage extends StatelessWidget {
                     text: "自定义按钮",
                     height: 80.0,
                     width: 80.0,
-                    pressed: (){
+                    pressed: () {
                       print("123");
                     },
                   ),
-
                 ],
               ),
             ],
           ),
-
         ],
       ),
     );
   }
-  
 }
 
 // 自定义按钮组件
-class MyBtn extends StatelessWidget{
+class MyBtn extends StatelessWidget {
   final text;
   final pressed;
   final width;
   final height;
 
-  MyBtn({this.text,this.pressed,this.width,this.height});
+  MyBtn({this.text, this.pressed, this.width, this.height});
 
   @override
   Widget build(BuildContext context) {
@@ -188,5 +171,4 @@ class MyBtn extends StatelessWidget{
       ),
     );
   }
-
 }
