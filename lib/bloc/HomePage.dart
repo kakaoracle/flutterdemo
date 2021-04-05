@@ -15,14 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  LoginBloc loginBloc;
-
-  @override
-  void initState() {
-    super.initState();
-    loginBloc = BlocProvider.of<LoginBloc>(context);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

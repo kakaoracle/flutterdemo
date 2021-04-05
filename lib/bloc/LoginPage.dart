@@ -52,6 +52,8 @@ class _LoginPageState extends State<LoginPage> {
         }
         // 登录成功状态
         if (state is LoginSuccessState) {
+          // 创建一个新的materialApp,路由都由其管理,因此同一个MaterialApp下除了首页,跳转
+          // 其他页面是一定有返回按钮的,而登录页跳转到首页就要求不能有返回按钮
           return MaterialApp(home: HomePage());
         }
         // 登录失败
