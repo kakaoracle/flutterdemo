@@ -7,15 +7,13 @@ import 'package:kaka/pages/tabs/Settings.dart';
 class Tabs extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return TabsState();
   }
-
 }
 
 class TabsState extends State<Tabs> {
-  int _index =0;
-  List pageList =[
+  int _index = 0;
+  List pageList = [
     HomePagePage(),
     CategoryPage(),
     SettingsPage(),
@@ -24,32 +22,26 @@ class TabsState extends State<Tabs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("flutter demo"),),
+      appBar: AppBar(
+        title: Text("flutter demo"),
+      ),
       body: this.pageList[this._index],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _index,
-        onTap: (int index){
+        onTap: (int index) {
           setState(() {
             _index = index;
             print(_index);
           });
         },
         items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("index")),
           BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text("index")
-          ),
+              icon: Icon(Icons.category), title: Text("category")),
           BottomNavigationBarItem(
-              icon: Icon(Icons.category),
-              title: Text("category")
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              title: Text("settings")
-          ),
+              icon: Icon(Icons.settings), title: Text("settings")),
         ],
       ),
     );
   }
-
 }

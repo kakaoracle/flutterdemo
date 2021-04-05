@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kaka/demos/mainApp_blocdemo.dart';
+import 'package:kaka/demos/BlocApp.dart';
 
 /* 
 * main函数是主入口,其他具体页面可以在runApp中进行定义
