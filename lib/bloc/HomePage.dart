@@ -26,14 +26,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('登录成功的页面'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: Text("首页")),
       body: BlocBuilder<LoginBloc, LoginState>(
         builder: (context, state) {
           if (state is LoginSuccessState) {
-            final currentState = state;
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[

@@ -28,7 +28,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("title")),
       body: BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
         // 初始状态
         if (state is LoginInitialState) {
@@ -53,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
         }
         // 登录成功状态
         if (state is LoginSuccessState) {
-          return SuccessDialog();
+          return MaterialApp(home: HomePage());
         }
         // 登录失败
         if (state is LoginFailState) {
@@ -130,31 +129,6 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.circular(100),
         ),
         onPressed: onPressed,
-      ),
-    );
-  }
-}
-
-class SuccessDialog extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return _SuccessDialogState();
-  }
-}
-
-class _SuccessDialogState extends State<SuccessDialog> {
-  Future<void> waitFuture() async {
-    await Future.delayed(Duration(milliseconds: 500));
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => HomePage()));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        '登录成功',
-        style: TextStyle(fontSize: 18, color: Colors.black),
       ),
     );
   }

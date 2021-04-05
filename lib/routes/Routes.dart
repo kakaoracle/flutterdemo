@@ -1,3 +1,4 @@
+import 'package:kaka/bloc/HomePage.dart';
 import 'package:kaka/bloc/LoginPage.dart';
 import 'package:kaka/pages/CheckBox.dart';
 import 'package:kaka/pages/Dialog.dart';
@@ -19,7 +20,8 @@ import 'package:kaka/titlebar/AppBar1.dart';
 // 路由跳转逻辑全部在OngenerateRoute中,其他模块定义的路由全部在此
 final routes = {
   // 默认跳转的页面
-  '/': (context, {arguments}) => Tabs1(),
+  //'/': (context, {arguments}) => Tabs1(),
+  '/': (context, {arguments}) => HomePage(),
   '/tabs2': (context) => Tabs2(),
   '/textfield': (context) => TextFieldDemoPage(),
   '/checkbox': (context) => CheckBoxPage(),

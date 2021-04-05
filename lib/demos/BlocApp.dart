@@ -11,7 +11,6 @@ class BlocApp extends StatelessWidget {
         // 在最顶级的目录中定义block工具类,然后才能在context中监听到状态
         create: (context) => LoginBloc(),
         child: MaterialApp(
-          title: 'Flutter Demo',
           theme: ThemeData(
             primarySwatch: Colors.blue,
             visualDensity: VisualDensity.adaptivePlatformDensity,
