@@ -66,6 +66,7 @@ class DioDemoPageState extends State<DioDemoPage> {
               SizedBox(
                 height: 20,
               ),
+              // ignore: missing_required_param
               RaisedButton(
                 child: Text("dio get"),
               ),

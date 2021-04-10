@@ -22,28 +22,31 @@ class _HomePageState extends State<HomePage> {
       body: BlocBuilder<LoginBloc, LoginState>(
         builder: (context, state) {
           if (state is LoginSuccessState) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  '登录成功',
-                  style: TextStyle(fontSize: 24, color: Colors.black),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  '登录账号::::${state.model.name}',
-                  style: TextStyle(fontSize: 18, color: Colors.black),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  '登录密码::::${state.model.pwd}',
-                  style: TextStyle(fontSize: 18, color: Colors.black),
-                ),
-              ],
+            return Align(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    '登录成功',
+                    style: TextStyle(fontSize: 24, color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    '登录账号::::${state.model.name}',
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    '登录密码::::${state.model.pwd}',
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+                ],
+              ),
             );
           }
 
